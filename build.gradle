@@ -1,0 +1,35 @@
+group 'dwu'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        jcenter()
+//        maven { url "http://repo.spring.io/snapshot" }
+//        maven { url "http://repo.spring.io/milestone" }
+//        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        // the version variable springBootVersion not defined at this point, so have to explicitly specify the version
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.5.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+
+repositories {
+//    mavenCentral()
+    jcenter()
+//    maven { url "http://repo.spring.io/snapshot" }
+//    maven { url "http://repo.spring.io/milestone" }
+}
+
+dependencies {
+//    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile("org.springframework.boot:spring-boot-starter-web:1.3.5.RELEASE")
+    // for OAuth 2.0
+    compile 'org.springframework.security.oauth:spring-security-oauth2:2.0.10.RELEASE'
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:1.3.5.RELEASE")
+}
